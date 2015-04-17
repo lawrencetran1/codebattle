@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="large-6 columns">
+      <div class="signup-panel">
+        <p class="welcome">Sign up for Code Battle!</p>
+
+        <%= form_for @user do |f| %>
+
+          <div class="row collapse">
+            <div class="small-2  columns">
+              <span class="prefix"><i class="fi-torso-female"></i></span>
+            </div>
+            <div class="small-10  columns">
+              <%= f.text_field :username, placeholder: "username" %>
+            </div>
+          </div>
+          <div class="row collapse">
+            <div class="small-2 columns">
+              <span class="prefix"><i class="fi-mail"></i></span>
+            </div>
+            <div class="small-10  columns">
+              <%= f.text_field :email, placeholder: "email" %>
+            </div>
+          </div>
+          <div class="row collapse">
+            <div class="small-2 columns ">
+              <span class="prefix"><i class="fi-lock"></i></span>
+            </div>
+            <div class="small-10 columns ">
+              <%= f.password_field :password, placeholder: "password" %>
+            </div>
+          </div>
+
+          <%= f.submit "Sign Up!", class: "button" %>
+
+        <% end %>
+
+         <p>Already have an account? <a href="#">Login here &raquo</a></p>
+      </div>
+    </div>
+   </div>
