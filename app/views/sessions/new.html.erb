@@ -1,1 +1,32 @@
-<h1>login</h1>
+<div class="row">
+    <div class="large-6 columns">
+      <div class="signup-panel">
+        <p class="welcome">Log in to Code Battle!</p>
+
+        <%= form_tag('/login', method: :post) do %>
+
+          <div class="row collapse">
+            <div class="small-2  columns">
+              <span class="prefix"><i class="fi-torso-female"></i></span>
+            </div>
+            <div class="small-10  columns">
+              <%= text_field_tag :username, nil, placeholder: "username" %>
+            </div>
+          </div>
+
+          <div class="row collapse">
+            <div class="small-2 columns ">
+              <span class="prefix"><i class="fi-lock"></i></span>
+            </div>
+            <div class="small-10 columns ">
+              <%= password_field_tag :password, nil, placeholder: "password" %>
+            </div>
+          </div>
+
+          <%= submit_tag "Log In!", class: "button" %>
+
+        <% end %>
+
+      </div>
+    </div>
+   </div>
