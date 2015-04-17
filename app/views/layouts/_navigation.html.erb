@@ -8,9 +8,24 @@
   <section class="top-bar-section">
     <!-- Right Nav Section -->
     <ul class="right">
-      <li class=""><%= link_to "Login", login_path %></li>
-      <li class="active"><%= link_to "Sign Up", signup_path %></li>
+         <% if current_user %>
+
+          <li class="has-dropdown">
+            <a href="#"><%= current_user.username %></a>
+              <ul class="dropdown">
+                <li><a href="#">View profile</a></li>
+                <li><%= link_to "Logout", '/logout' %></li>
+              </ul>
+          </li>          
+         <% end %>
+
+      <% if !current_user %>
+        <li><%= link_to "Login", '/login', class: "button success" %></li>
+        <li class="has-form"><%= link_to "Sign Up", signup_path, class: "button alert" %></li>
+      <% end %>
+
     </ul>
 
   </section>
 </nav>
+
