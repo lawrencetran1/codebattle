@@ -13,8 +13,8 @@
           <li class="has-dropdown">
             <a href="#"><%= current_user.username %></a>
               <ul class="dropdown">
-                <li><a href="#">View profile</a></li>
-                <li><%= link_to "Logout", '/logout' %></li>
+                <li><%= link_to "View profile", user_path(current_user) %></li>
+                <li><%= link_to "Logout", logout_path %></li>
               </ul>
           </li>          
          <% end %>
