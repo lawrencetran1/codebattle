@@ -8,23 +8,15 @@
      
             <div class="large-4 small-12 columns">
      
-              <img src="http://placehold.it/500x500&text=Logo">
-     
               <div class="hide-for-small panel">
                 <h3>Welcome <%= current_user.username %>!</h3>
                 <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
-                  <section class="section">
-                    <%= link_to "Create challenge", new_challenge_path, class: "button" %>
-                  </section>
-                  <section class="section">
-                    <h5 class="title"><a href="#">Challenge someone</a></h5>
-                  </section>
-                  <section class="section">
-                    <h5 class="title"><a href="#">View challenges</a></h5>
-                  </section>
-                  <section class="section">
-                    <h5 class="title"><a href="#">Edit profile</a></h5>
-                  </section>
+                  <ul class="stack button-group">
+                    <li><%= link_to "Create challenge", new_challenge_path, class: "button" %></li>
+                    <li><%= link_to "Challenge someone", current_user, class: "button" %></li>
+                    <li><%= link_to "Edit profile", current_user, class: "button" %></li>
+                  </ul>                
+
                 </div>
               </div>
      

@@ -16,7 +16,7 @@
   <div class="row">
     <div class="large-6 columns">
       <label class="cclabel">Choose a category
-        <%= select_tag(:category, options_for_select([['Ruby', 1], ['Javascript', 2]])) %>
+        <%= f.select(:category, [['Ruby'], ['Javascript']]) %>
       </label>
     </div>
     <div class="large-6 columns">
