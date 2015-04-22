@@ -14,7 +14,7 @@
                 <h3>Welcome <%= current_user.username %>!</h3>
                 <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
                   <section class="section">
-                    <h5 class="title"><a href="#">Create challenge</a></h5>
+                    <%= link_to "Create challenge", new_challenge_path, class: "button" %>
                   </section>
                   <section class="section">
                     <h5 class="title"><a href="#">Challenge someone</a></h5>
