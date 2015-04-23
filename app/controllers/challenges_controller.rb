@@ -9,6 +9,7 @@ class ChallengesController < ApplicationController
   	if @challenge.save
   		redirect_to current_user
   	else
+      flash[:alert] = @challenge.errors.full_messages
   		render "new"
   	end
   end
