@@ -10,5 +10,8 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
+  get '/contact' => 'pages#contact'
+  get '/help' => 'pages#help'
+  get '/about' => 'pages#about'  
   root 'pages#index'
 end

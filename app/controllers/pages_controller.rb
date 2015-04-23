@@ -3,4 +3,16 @@ class PagesController < ApplicationController
   	@challenges = Challenge.all
   end
 
+  def contact
+  	
+  end
+
+  def about
+  	
+  end
+
+  def help
+  	
+  end
+
 end
