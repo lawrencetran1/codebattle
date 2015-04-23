@@ -1,26 +1,26 @@
-<nav class="top-bar" data-topbar role="navigation">
-  <ul class="title-area">
-    <li class="name">
-      <h1><%= link_to "", '/', class: "fi-home" %></h1>
-    </li>
-  </ul>
 
-  <section class="top-bar-section">
-    <!-- Right Nav Section -->
-    <ul class="right">
-      <% if current_user %>
-        <li><%= link_to current_user.username %></li>
-        <li><%= link_to "View profile", user_path(current_user) %></li>
-        <li><%= link_to "Logout", logout_path %></li>       
-         <% end %>
-
-      <% if !current_user %>
-        <li><%= link_to "Login", '/login', class: "button success" %></li>
-        <li class="has-form"><%= link_to "Sign Up", signup_path, class: "button alert" %></li>
-      <% end %>
-
+  <nav class="top-bar" data-topbar role="navigation">
+    <ul class="title-area">
+      <li class="name">
+        <h1><%= link_to "", '/', class: "fi-home" %></h1>
+      </li>
     </ul>
 
-  </section>
-</nav>
+    <section class="top-bar-section">
+      <!-- Right Nav Section -->
+      <ul class="right">
+        <% if current_user %>
+          <li><%= link_to "#{current_user.username} Dashboard", user_path(current_user) %></li>
+          <li><%= link_to "Logout", logout_path %></li>       
+           <% end %>
 
+        <% if !current_user %>
+          <li><%= link_to "Login", '/login', class: "button success" %></li>
+          <li class="has-form"><%= link_to "Sign Up", signup_path, class: "button alert" %>
+          </li>
+        <% end %>
+
+      </ul>
+
+    </section>
+  </nav>  

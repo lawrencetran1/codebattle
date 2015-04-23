@@ -1,35 +1,48 @@
-<div class="full">&lt<span class="purple">code</span> <span class="green">battle</span>&gt<span id="typed-cursor" class="blinking">&#9646;</span></div><br>
+<div class="full">&lt<span class="purple">code</span> <span class="green">battle</span>&gt<span id="typed-cursor" class="blinking">&#9646;</span></div>
 
-       
         <div class="row">
           <div class="large-12 columns">
             <div class="row">
        
-           
+              <% @challenges.each do |challenge| %>
        
               <div class="large-3 small-6 columns">
-                <img src="http://placehold.it/250x250&text=Thumbnail"/>
-                <h6 class="panel">Description</h6>
+
+                <% if challenge.category == "Ruby" %>
+                  <span class="label alert"><%= challenge.category %></span>
+                <% else %>
+                  <span class="label"><%= challenge.category %></span>
+                <% end %>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th width="220">
+                        <h6 class="ccinfo"><strong><%= challenge.name %></strong></h6>
+                        <small>by <%= challenge.user.username %></small><span class="label secondary right fi-play"></span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tr>
+                    <td><p class="limited"><%= challenge.instructions %></p></td>
+                  </tr>
+                </table>
+                
+<!--                 <div class="panel ccbody">
+                  <%= challenge.instructions %>
+                </div> -->
+<!--                 <div class="panel">
+                  <h5 class="ccinfo"><strong><%= challenge.name %></strong></h5>
+                  <div class="row">
+                    <p>Creator: <%= challenge.user.username %></p>
+                    <p>Created on: <%= challenge.created_at %></p>
+                  </div>
+                </div> -->                                
               </div>
-       
-              <div class="large-3 small-6 columns">
-                <img src="http://placehold.it/250x250&text=Thumbnail"/>
-                <h6 class="panel">Description</h6>
-              </div>
-       
-              <div class="large-3 small-6 columns">
-                <img src="http://placehold.it/250x250&text=Thumbnail"/>
-                <h6 class="panel">Description</h6>
-              </div>
-       
-              <div class="large-3 small-6 columns">
-                <img src="http://placehold.it/250x250&text=Thumbnail"/>
-                <h6 class="panel">Description</h6>
-              </div>
-       
-           
+              <% end %>           
        
             </div>
+
           </div>
         </div>
        

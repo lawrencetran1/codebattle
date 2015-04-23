@@ -13,10 +13,22 @@
 	background-color: lightgrey !important;
 	font-family: monospace;
 	margin-bottom: 0 !important;
+  height: 220px;
+  overflow-y: scroll;
+}
+
+.limited {
+	font-family: monospace;
+	height: 220px;
+  overflow-y: scroll;
 }
 
 .ccinfo {
 	font-family: monospace;
+  white-space: nowrap; 
+  width: 13em; 
+  overflow: hidden;
+  text-overflow: ellipsis; 	
 }
 
 .black {

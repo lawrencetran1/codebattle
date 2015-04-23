@@ -23,6 +23,7 @@ class ChallengesController < ApplicationController
     if @challenge.update_attributes(challenge_params)
       redirect_to current_user
     else
+      flash[:alert] = @challenge.errors.full_messages
       render "edit"
     end
   end
