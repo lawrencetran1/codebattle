@@ -1,0 +1,73 @@
+<%= form_for @challenge do |f| %>
+
+  <div class="row">
+    <div class="large-6 columns">
+      <label class="cclabel">Challenge name
+        <%= f.text_field :name, placeholder: "Give your challenge a cool name!" %>
+      </label>
+    </div>
+    <div class="large-6 columns">
+      <label class="cclabel">Example name
+        <input type="text" name="fname" value="The Fibonacci Sequence" disabled="">
+      </label>
+    </div>    
+  </div>
+
+  <div class="row">
+    <div class="large-6 columns">
+      <label class="cclabel">Choose a category
+        <%= f.select(:category, [['Ruby'], ['Javascript']]) %>
+      </label>
+    </div>
+    <div class="large-6 columns">
+      <label class="cclabel">Example category
+        <input type="text" name="fname" value="Ruby" disabled="">
+      </label>
+    </div>     
+  </div>
+
+  <div class="row">
+    <div class="large-6 columns">
+      <label class="cclabel">Challenge instructions
+      <%= f.text_area :instructions, placeholder: "Enter your challenge here!", class: "cctextarea" %>
+      </label>
+    </div>
+    <div class="large-6 columns">
+      <label class="cclabel">Example of instructions
+      <textarea class="cctextarea" disabled>The Fibonacci sequence is a sequence where you start with 0 and 1 and you add them.&#13;&#10;&#13;&#10;Then you keep adding the last two numbers to make the next number in the sequence. </textarea>
+      </label>
+    </div>    
+  </div>
+
+  <div class="row">
+    <div class="large-6 columns">
+      <label class="cclabel">Output
+        <%= f.text_area :example, placeholder: "Please give an example of what your challenge outputs", class: "cctextarea" %>
+      </label>
+    </div>
+    <div class="large-6 columns">
+      <label class="cclabel">Example of output
+      <textarea class="cctextarea" disabled>Here is an example: the given value is 23, so the array would be [0,1,1,2,3,5,8,13,21].</textarea>
+      </label>
+    </div>      
+  </div>
+
+  <div class="row">
+    <div class="large-6 columns">
+      <label class="cclabel">Documentation
+        <%= f.text_field :documentation, placeholder: "Enter a link to documentation as a helpful tip" %>
+      </label>
+    </div>
+    <div class="large-6 columns">
+      <label class="cclabel">Example of documentation
+        <input type="text" name="fname" value="http://en.wikipedia.org/wiki/Fibonacci_number" disabled="">
+      </label>
+    </div>      
+  </div>
+
+  <div class="row">
+    <div class="large-6 columns">
+      <%= f.submit "Submit", class: "button expand" %>
+    </div>
+  </div>
+<% end %>
