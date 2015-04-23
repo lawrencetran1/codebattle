@@ -3,6 +3,10 @@ class ChallengesController < ApplicationController
     @challenge = Challenge.new
   end
 
+  def show
+    @challenge = Challenge.find(params[:id])
+  end
+
   def edit
     @challenge = Challenge.find(params[:id])
   end

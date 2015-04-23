@@ -9,12 +9,12 @@
           <li><%= link_to "Create challenge", new_challenge_path, class: "button" %></li>
           <li><%= link_to "Challenge someone", current_user, class: "button" %></li>
           <li><%= link_to "Edit profile", current_user, class: "button" %></li>
+          <li><%= link_to "Back to home", root_path, class: "button" %></li>
         </ul>                
 
       </div>
     </div>
 
-    <a href="#">
     <div class="panel callout radius">      
       <% if current_user.challenges.count == 1 %>
         <h6>You have <%= current_user.challenges.count %> code challenge</h6>
@@ -22,7 +22,6 @@
         <h6>You have <%= current_user.challenges.count %> code challenges</h6>
       <% end %>
     </div>
-    </a>
 
   </div>
 
@@ -44,7 +43,7 @@
         <div class="panel">
           <h5 class="ccinfo"><strong><%= challenge.name %></strong></h5>
           <div class="row">
-            <div class="small-2 columns"><span><%= link_to "", current_user, class: "fi-play black" %></span></div>
+            <div class="small-2 columns"><span><%= link_to "", challenge_path(challenge), class: "fi-play black" %></span></div>
             <div class="small-2 columns"><span><%= link_to "", edit_challenge_path(challenge), class: "fi-wrench black" %></span></div>
             <div class="small-8 columns"><span><%= link_to "", challenge, method: :delete, data: {confirm: "Are you sure you want to delete this bean?"}, class: "fi-trash black" %></span></div>
           </div>
