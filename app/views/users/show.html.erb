@@ -27,7 +27,7 @@
 
   <div class="large-8 columns">
     <div class="row">
-      <% current_user.challenges.each do |challenge| %>
+      <% @paginatable_array.each do |challenge| %>
       <div class="large-6 small-6 columns">
 
         <% if challenge.category == "Ruby" %>
@@ -37,7 +37,7 @@
         <% end %>
 
         <div class="panel ccbody">
-          <%= challenge.instructions %>
+          <textarea class="limited ccbody"><%= challenge.instructions %></textarea>
         </div>
 
         <div class="panel">
@@ -55,6 +55,7 @@
 
     </div>
 
+    <%= paginate @paginatable_array %>
 
   </div>
 

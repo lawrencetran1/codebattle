@@ -7,7 +7,8 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		@user = User.find(params[:id])
+		@paginatable_array = Kaminari.paginate_array(current_user.challenges).page(params[:page]).per(4)
+		# @challenges = current_user.challenges.all.page(params[:page])
 	end
 
 	def create

@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+	paginates_per 4
 	has_secure_password
 	has_many :challenges
 	validates :username, presence: true, uniqueness: { case_sensitive: false }
