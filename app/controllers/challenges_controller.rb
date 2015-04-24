@@ -38,6 +38,11 @@ class ChallengesController < ApplicationController
     redirect_to current_user
   end
 
+  def check_solution
+    @solution = params[:solution]
+    
+  end
+
   private
 
     def challenge_params

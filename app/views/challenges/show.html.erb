@@ -1,6 +1,5 @@
 <div class="row">
         <div class="large-12 columns">
-     
 
             <div class="row">
      
@@ -10,18 +9,19 @@
      
                 <div class="panel">
                   <h4 class="hide-for-small"><%= @challenge.name %><hr/></h4>
-                  <textarea class="ccarea"><%= @challenge.instructions %></textarea>
+                  <textarea class="ccarea" disabled><%= @challenge.instructions %></textarea>
                 </div>
      
               </div>
-     
+              
               <div class="large-6 columns">
      
                 <h3 class="show-for-small">Your solution<hr/></h3>
      
                 <div class="panel">
                   <h4 class="hide-for-small">Your solution<hr/></h4>
-                  <textarea class="ccarea"></textarea>
+                  <%= form_tag({controller: "challenges", action: "check_solution"}, method: "get") do %>
+                  <%= text_area_tag :solution, nil, class: "ccarea" %>
                 </div>
      
               </div>    
@@ -32,7 +32,7 @@
      
                 <div class="panel">
                   <h4 class="hide-for-small">Output<hr/></h4>
-                  <textarea class="ccarea"><%= @challenge.example %></textarea>
+                  <textarea class="ccarea" disabled><%= @challenge.example %></textarea>
                 </div>
      
               </div>
@@ -50,9 +50,8 @@
      
             </div>
 
-
-            <a href="#" class="button success expand">Submit</a>
-     
+            <%= submit_tag "Submit", class: "button success expand" %>  
+            <% end %>
            
      
      

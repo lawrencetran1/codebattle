@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def index
-  	@challenges = Challenge.all
+  	@challenges = Challenge.all.page(params[:page])
   end
 
   def contact

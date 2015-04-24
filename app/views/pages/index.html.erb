@@ -2,10 +2,14 @@
 
         <div class="row">
           <div class="large-12 columns">
+            <br>
+            <h2 id="title-challenges" class="subheader">Check out these awesome code challenges!</h2>
+                <%= paginate @challenges, :params => { :anchor => 'title-challenges' } %>         
+            <hr>
             <div class="row">
-       
+               
               <% @challenges.each do |challenge| %>
-       
+
               <div class="large-3 small-6 columns">
 
                 <% if challenge.category == "Ruby" %>
@@ -28,10 +32,10 @@
                     <td><p class="limited"><%= challenge.instructions %></p></td>
                   </tr>
                 </table>
-                                              
+              
               </div>
               <% end %>           
-       
+
             </div>
 
           </div>
