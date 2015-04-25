@@ -2,7 +2,7 @@
         <div class="large-12 columns">
 
             <div class="row">
-     
+              <p>Your answer: <%= @solution %>, Correct answer: <%= @challenge.answer %>, Result: <%= @result %></p>
               <div class="large-6 columns">
      
                 <h3 class="show-for-small"><%= @challenge.name %><hr/></h3>
@@ -20,7 +20,8 @@
      
                 <div class="panel">
                   <h4 class="hide-for-small">Your solution<hr/></h4>
-                  <%= form_tag({controller: "challenges", action: "check_solution"}, method: "get") do %>
+                  <%#= form_tag({controller: "challenges", action: "check_solution"}, method: "get") do %>
+                  <%= form_tag("/challenges/#{params[:id]}", method: :get) do %>
                   <%= text_area_tag :solution, nil, class: "ccarea" %>
                 </div>
      
@@ -28,22 +29,22 @@
      
               <div class="large-6 columns">
      
-                <h3 class="show-for-small">Output<hr/></h3>
+                <h3 class="show-for-small">Starter Code<hr/></h3>
      
                 <div class="panel">
-                  <h4 class="hide-for-small">Output<hr/></h4>
-                  <textarea class="ccarea" disabled><%= @challenge.example %></textarea>
+                  <h4 class="hide-for-small">Starter Code<hr/></h4>
+                  <textarea class="ccarea" disabled><%= @challenge.starter %></textarea>
                 </div>
      
               </div>
 
               <div class="large-6 columns">
      
-                <h3 class="show-for-small">Test cases<hr/></h3>
+                <h3 class="show-for-small">Documentation<hr/></h3>
      
                 <div class="panel">
-                  <h4 class="hide-for-small">Test cases<hr/></h4>
-                  <textarea class="ccarea"></textarea>
+                  <h4 class="hide-for-small">Documentation<hr/></h4>
+                  <textarea class="ccarea"><%= @challenge.documentation %></textarea>
                 </div>
      
               </div>              
@@ -52,8 +53,6 @@
 
             <%= submit_tag "Submit", class: "button success expand" %>  
             <% end %>
-           
-     
      
         </div>
       </div>

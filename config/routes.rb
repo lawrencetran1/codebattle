@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
 
-	match '/challenges', to: 'challenges#check_solution', via: 'get'
+  get '/challenges' => 'challenges#check_solution', as: :check_solution
 
+  resources :users
 	resources :challenges
 	
   get '/signup' => 'users#new'
-  post '/users' => 'users#create'
-  get '/users/:id' => 'users#show', as: :user
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'

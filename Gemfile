@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.2.1'
 gem 'better_errors'
+gem 'figaro'
 gem 'pg'
 gem 'pry-rails'
 gem 'bcrypt'

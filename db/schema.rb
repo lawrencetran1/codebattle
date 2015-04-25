@@ -18,9 +18,10 @@ ActiveRecord::Schema.define(version: 20150422154456) do
 
   create_table "challenges", force: :cascade do |t|
     t.string   "name"
-    t.string   "instructions"
-    t.string   "example"
     t.string   "category"
+    t.string   "instructions"
+    t.string   "answer"
+    t.string   "starter"
     t.string   "documentation"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false

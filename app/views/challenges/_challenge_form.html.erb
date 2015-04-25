@@ -8,7 +8,7 @@
     </div>
     <div class="large-6 columns">
       <label class="cclabel">Example name
-        <input type="text" name="fname" value="The Fibonacci Sequence" disabled="">
+        <input type="text" name="fname" value="Square root?" disabled="">
       </label>
     </div>    
   </div>
@@ -21,7 +21,7 @@
     </div>
     <div class="large-6 columns">
       <label class="cclabel">Example category
-        <input type="text" name="fname" value="Ruby" disabled="">
+        <input type="text" name="fname" value="Javascript" disabled="">
       </label>
     </div>     
   </div>
@@ -34,20 +34,47 @@
     </div>
     <div class="large-6 columns">
       <label class="cclabel">Example of instructions
-      <textarea class="cctextarea" disabled>The Fibonacci sequence is a sequence where you start with 0 and 1 and you add them.&#13;&#10;&#13;&#10;Then you keep adding the last two numbers to make the next number in the sequence. </textarea>
+      <textarea class="cctextarea" disabled>Write a function named "squareRoot" that checks if the parameter passed in is a square root.&#13;&#10;&#13;&#10;squareRoot(4096) //=> true&#13;&#10;squareRoot(333)  //=> false</textarea>
       </label>
     </div>    
   </div>
 
   <div class="row">
     <div class="large-6 columns">
-      <label class="cclabel">Output
-        <%= f.text_area :example, placeholder: "Please give an example of what your challenge outputs", class: "cctextarea" %>
+      <label class="cclabel">Solution
+        <%= f.text_area :answer, placeholder: "Please enter the solution to the challenge", class: "cctextarea" %>
       </label>
     </div>
     <div class="large-6 columns">
-      <label class="cclabel">Example of output
-      <textarea class="cctextarea" disabled>Here is an example: the given value is 23, so the array would be [0,1,1,2,3,5,8,13,21].</textarea>
+      <label class="cclabel">Example of solution
+      <textarea class="cctextarea" disabled>function squareRoot(num) {
+  if (Math.sqrt(num) % 1 == 0) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}</textarea>
+      </label>
+    </div>      
+  </div>
+
+  <div class="row">
+    <div class="large-6 columns">
+      <label class="cclabel">Starter Code
+        <%= f.text_area :starter, placeholder: "Please enter starter code for the solution", class: "cctextarea" %>
+      </label>
+    </div>
+    <div class="large-6 columns">
+      <label class="cclabel">Example of Starter Code
+      <textarea class="cctextarea" disabled>function squareRoot(num) {
+  if (condition) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}</textarea>
       </label>
     </div>      
   </div>
@@ -60,7 +87,7 @@
     </div>
     <div class="large-6 columns">
       <label class="cclabel">Example of documentation
-        <input type="text" name="fname" value="http://en.wikipedia.org/wiki/Fibonacci_number" disabled="">
+        <input type="text" name="fname" value="http://en.wikipedia.org/wiki/Square_root" disabled="">
       </label>
     </div>      
   </div>

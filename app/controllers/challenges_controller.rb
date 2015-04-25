@@ -1,10 +1,19 @@
 class ChallengesController < ApplicationController
+
   def new
     @challenge = Challenge.new
   end
 
   def show
     @challenge = Challenge.find(params[:id])
+    @solution = params[:solution].to_s.gsub(/\s+/, '')
+    @result = nil
+    if @challenge.answer == @solution
+      @result = true
+    else
+      @result = false
+    end
+
   end
 
   def edit
@@ -38,15 +47,11 @@ class ChallengesController < ApplicationController
     redirect_to current_user
   end
 
-  def check_solution
-    @solution = params[:solution]
-    
-  end
 
   private
 
     def challenge_params
-      params.require(:challenge).permit(:name, :instructions, :example, :category, :documentation)
+      params.require(:challenge).permit(:name, :instructions, :category, :answer, :starter, :documentation)
     end
 
 end

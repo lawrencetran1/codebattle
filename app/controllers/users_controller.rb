@@ -6,9 +6,22 @@ class UsersController < ApplicationController
 		@user = User.new
 	end
 
+	def edit
+		@user = User.find(params[:id])
+	end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      redirect_to current_user
+    else
+      flash[:alert] = @user.errors.full_messages
+      render "edit"
+    end
+  end	
+
 	def show
 		@paginatable_array = Kaminari.paginate_array(current_user.challenges).page(params[:page]).per(4)
-		# @challenges = current_user.challenges.all.page(params[:page])
 	end
 
 	def create
