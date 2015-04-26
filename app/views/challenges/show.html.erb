@@ -12,6 +12,7 @@
      
                 <div class="panel">
                   <h4 class="hide-for-small"><%= @challenge.name %><hr/></h4>
+
                   <textarea class="ccsolve" disabled><%= @challenge.instructions %></textarea>
                 </div>
      
@@ -32,13 +33,9 @@
      
             </div>
 
-            <div class="panel">
-              <span>Documentation: </span><a href=<%= @challenge.documentation %> ><%= @challenge.documentation %></a>
-            </div>
-
             <%= submit_tag "Submit", class: "button success expand" %>
            
             <% end %>
-     
+            <span>Documentation: </span><a href=<%= @challenge.documentation %> ><%= @challenge.documentation %></a><br><br>
         </div>
       </div>
