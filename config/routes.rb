@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'example' => 'example#index'
   get '/challenges' => 'challenges#check_solution', as: :check_solution
 
   resources :users

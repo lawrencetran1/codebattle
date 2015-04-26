@@ -26,6 +26,15 @@
   overflow-y: scroll;
 }
 
+.ccsolve {
+	background-color: lightgrey !important;
+	font-family: monospace;
+	font-size: 1.2em;
+	margin-bottom: 0 !important;
+  height: 400px;
+  overflow-y: scroll;
+}
+
 .limited {
 	font-family: monospace;
 	border-style: none;
@@ -44,4 +53,8 @@
 
 .black {
 	color: black;
+}
+
+#ccresult {
+	background-color: lightgreen;
 }

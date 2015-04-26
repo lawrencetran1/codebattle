@@ -9,9 +9,9 @@ class ChallengesController < ApplicationController
     @solution = params[:solution].to_s.gsub(/\s+/, '')
     @result = nil
     if @challenge.answer == @solution
-      @result = true
+      @result = "Congratulations, you are incredibly smart!"
     else
-      @result = false
+      @result = "Whoops, looks like your solution is a little off..."
     end
 
   end
@@ -47,6 +47,18 @@ class ChallengesController < ApplicationController
     redirect_to current_user
   end
 
+  def check_solution
+    # @challenge = Challenge.find(params[:id])
+    # @solution = params[:solution].to_s.gsub(/\s+/, '')
+    # @result = nil
+    # if @challenge.answer == @solution
+    #   @result = "Congratulations, you are incredibly smart!"
+    #   redirect_to check_solution_path
+    # else
+    #   @result = "Whoops, looks like your solution is a little off..."
+    #   redirect_to check_solution_path
+    # end
+  end
 
   private
 
