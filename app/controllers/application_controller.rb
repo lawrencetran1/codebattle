@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user, :require_user, :require_admin
 
+  # if user logs in successfully, return @current_user which will be available throughout the application
   def current_user
   	if session[:user_id]
   		@current_user ||= User.find(session[:user_id])

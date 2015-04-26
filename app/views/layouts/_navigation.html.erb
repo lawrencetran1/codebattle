@@ -1,3 +1,4 @@
+<!-- Navigation bar partial -->
 
   <nav class="top-bar" data-topbar role="navigation">
     <ul class="title-area">
@@ -9,11 +10,14 @@
     <section class="top-bar-section">
       <!-- Right Nav Section -->
       <ul class="right">
+
+        <!-- If user logs in successfully, show username with first letter of capitalized and a link to logout -->
         <% if current_user %>
           <li><%= link_to " #{current_user.username.titlecase}", user_path(current_user), class: "fi-torso" %></li>
           <li><%= link_to " Logout", logout_path, class: "fi-power" %></li>       
            <% end %>
 
+        <!-- If user is not logged in, display login button and a signup button -->
         <% if !current_user %>
           <li><%= link_to "Login", '/login', class: "button success" %></li>
           <li class="has-form"><%= link_to "Sign Up", signup_path, class: "button alert" %>

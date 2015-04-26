@@ -1,41 +1,52 @@
-<div class="row">
-        <div class="large-12 columns">
-            <div id="ccresult" class="panel" ng-model="checked">
-              <p><%= @result %></p>
-            </div>
-          
-            <div class="row">
+<!-- Show page for each challenge, also where user can test their solution -->
 
-              <div class="large-6 columns">
-     
-                <h3 class="show-for-small"><%= @challenge.name %><hr/></h3>
-     
-                <div class="panel">
-                  <h4 class="hide-for-small"><%= @challenge.name %><hr/></h4>
+<div class="row" ng-app='app.challengeApp' ng-controller='ChallengeCtrl'>
+  <div class="large-12 columns">
 
-                  <textarea class="ccsolve" disabled><%= @challenge.instructions %></textarea>
-                </div>
-     
-              </div>
-              
-              <div class="large-6 columns">
-     
-                <h3 class="show-for-small">Your solution<hr/></h3>
-     
-                <div class="panel">
-                  <h4 class="hide-for-small">Your solution<hr/></h4>
-                  <%= form_tag("/challenges/#{params[:id]}", method: :get) do %>
 
-                  <%= text_area_tag :solution, @challenge.starter, class: "ccsolve" %>
-                </div>
-     
-              </div>              
-     
-            </div>
-
-            <%= submit_tag "Submit", class: "button success expand" %>
-           
-            <% end %>
-            <span>Documentation: </span><a href=<%= @challenge.documentation %> ><%= @challenge.documentation %></a><br><br>
-        </div>
+      <!-- Display result if user got the solution correct or not -->
+      <div id="ccresult" class="panel">
+        <p><%= @result %></p>
+        <p>Value from ChallengeCtrl: {{ challengeValue }}</p>
       </div>
+    
+
+      <!-- Display challenge instructions -->
+      <div class="row">
+
+        <div class="large-6 columns">     
+          <h3 class="show-for-small"><%= @challenge.name %><hr/></h3>     
+          <div class="panel">
+            <h4 class="hide-for-small"><%= @challenge.name %><hr/></h4>
+            <textarea class="ccsolve" disabled><%= @challenge.instructions %></textarea>
+          </div>
+        </div>
+        
+
+        <!-- Section for user to enter their solution -->
+        <div class="large-6 columns">     
+          <h3 class="show-for-small">Your solution<hr/></h3>     
+          <div class="panel">
+            <h4 class="hide-for-small">Your solution<hr/></h4>
+
+            <!-- Allows the show action in challenges controller to have access to the challenge id -->
+            <%= form_tag("/challenges/#{params[:id]}", method: :get) do %>
+            
+            <!-- Stores users solution into a params[:solution] that can be accessed by the challenges controller -->
+            <%= text_area_tag :solution, @challenge.starter, class: "ccsolve" %>
+          </div>     
+        </div>              
+
+      </div>
+
+      <%= submit_tag "Submit", class: "button success expand" %>
+     
+      <% end %>
+
+      <!-- Section for documentation -->
+      <span>Documentation: </span>
+      <a href=<%= @challenge.documentation %> ><%= @challenge.documentation %></a>
+      <br><br>
+
+  </div>
+</div>

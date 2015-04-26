@@ -11,14 +11,23 @@
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
   </head>
+  
   <body>
 
     <header>
+      <!-- Render navigation bar on all pages -->
       <%= render 'layouts/navigation' %>
     </header>
+
+
     <main role="main">
-       <%= yield %>
-       <%= render 'layouts/footer' %>
+       <%= yield %>       
     </main>
+
+
+    <!-- Render footer on all pages -->
+    <%= render 'layouts/footer' %>
+
   </body>
+
 </html>

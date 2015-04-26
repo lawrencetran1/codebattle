@@ -1,5 +1,8 @@
+<!-- Partial for new and edit challenge -->
+
 <%= form_for @challenge do |f| %>
 
+  <!-- Section for challenge name -->
   <div class="row">
     <div class="large-6 columns">
       <label class="cclabel">Challenge name
@@ -13,6 +16,8 @@
     </div>    
   </div>
 
+
+  <!-- Section to select challenge category -->
   <div class="row">
     <div class="large-6 columns">
       <label class="cclabel">Choose a category
@@ -26,6 +31,8 @@
     </div>     
   </div>
 
+
+  <!-- Section to type the instructions for the challenge -->
   <div class="row">
     <div class="large-6 columns">
       <label class="cclabel">Challenge instructions
@@ -39,6 +46,8 @@
     </div>    
   </div>
 
+
+  <!-- Section to enter in the solution of the challenge -->
   <div class="row">
     <div class="large-6 columns">
       <label class="cclabel">Solution
@@ -54,11 +63,14 @@
   else {
     return false;
   }
-}</textarea>
+}
+</textarea>
       </label>
     </div>      
   </div>
 
+
+  <!-- Section to enter the starter code for each challenge -->
   <div class="row">
     <div class="large-6 columns">
       <label class="cclabel">Starter Code
@@ -74,11 +86,14 @@
   else {
     return false;
   }
-}</textarea>
+}
+</textarea>
       </label>
     </div>      
   </div>
 
+
+  <!-- Section to enter documentation for each challenge -->
   <div class="row">
     <div class="large-6 columns">
       <label class="cclabel">Documentation
@@ -92,6 +107,8 @@
     </div>      
   </div>
 
+
+  <!-- Submit button -->
   <div class="row">
     <div class="large-6 columns">
       <%= f.submit "Submit", class: "button expand" %>

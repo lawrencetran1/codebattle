@@ -17,3 +17,8 @@
  */
 @import "foundation_and_overrides";
 @import 'foundation-icons';
+
+#footer {
+   position:fixed;
+   bottom:0px;
+}

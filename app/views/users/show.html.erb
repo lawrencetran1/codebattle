@@ -1,7 +1,10 @@
+<!-- User dashboard page -->
+
 <div class="row">
 
   <div class="large-4 small-12 columns">
 
+    <!-- Navigation to create challenge, battle other coders, edit profile, and back to home -->
     <div class="hide-for-small panel">
       <h3>Welcome <%= current_user.username %>!</h3><br>
       <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
@@ -15,6 +18,7 @@
       </div>
     </div>
 
+    <!-- Displays how many challenges user has. If user has only 1, then it will display singular, otherwise plural -->
     <div class="panel callout radius">      
       <% if current_user.challenges.count == 1 %>
         <h6>You have <%= current_user.challenges.count %> code challenge</h6>
@@ -25,6 +29,7 @@
 
   </div>
 
+  <!-- Displays all challenges that the current user has created -->
   <div class="large-8 columns">
     <div class="row">
       <% @paginatable_array.each do |challenge| %>
@@ -40,6 +45,7 @@
           <textarea class="limited ccbody"><%= challenge.instructions %></textarea>
         </div>
 
+        <!-- Section to start, edit, and delete a challenge -->
         <div class="panel">
           <h5 class="ccinfo"><strong><%= challenge.name %></strong></h5>
           <div class="row">
@@ -55,6 +61,7 @@
 
     </div>
 
+    <!-- Displays 4 challenges per page -->
     <%= paginate @paginatable_array %>
 
   </div>

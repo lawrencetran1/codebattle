@@ -1,44 +1,58 @@
-<div class="full">&lt<span class="purple">code</span> <span class="green">battle</span>&gt<span id="typed-cursor" class="blinking">&#9646;</span></div>
+<!-- Page page splash screen with blinking cursor -->
+<div class="full">
+  &lt<span class="purple">code</span> <span class="green">battle</span>&gt<span id="typed-cursor" class="blinking">&#9646;</span>
+</div>
 
-        <div class="row">
-          <div class="large-12 columns">
-            <br>
-            <h2 id="title-challenges" class="subheader">Check out these awesome code challenges!</h2>
-                <%= paginate @challenges, :params => { :anchor => 'title-challenges' } %>         
-            <hr>
-            <div class="row">
-               
-              <% @challenges.each do |challenge| %>
+<div class="row">
+  <div class="large-12 columns">
+    <br>
+    <h2 id="title-challenges" class="subheader">Check out these awesome code challenges!</h2>
 
-              <div class="large-3 small-6 columns">
+        <!-- Pagination and displays 8 challenges per page -->
+        <%= paginate @challenges, :params => { :anchor => 'title-challenges' } %>         
+    <hr>
 
-                <% if challenge.category == "Ruby" %>
-                  <span class="label alert"><%= challenge.category %></span>
-                <% else %>
-                  <span class="label"><%= challenge.category %></span>
-                <% end %>
 
-                <table>
-                  <thead>
-                    <tr>
-                      <th width="220">
-                        <h6 class="ccinfo"><strong><%= challenge.name %></strong></h6>
-                        <small>by <%= challenge.user.username %></small>
-                          <%= link_to "", challenge_path(challenge), class: "label success right fi-play" %>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tr>
-                  <td><textarea class="limited"><%= challenge.instructions %></textarea></td>
-                  </tr>
-                </table>
-              
-              </div>
-              <% end %>           
+    <!-- Section to display all challenges that every user has created -->
+    <div class="row">
 
-            </div>
+      <!-- Loop through all challenges -->
+      <% @challenges.each do |challenge| %>
 
-          </div>
+        <div class="large-3 small-6 columns">
+
+
+          <!-- If category is Ruby, use a red label -->
+          <% if challenge.category == "Ruby" %>
+            <span class="label alert"><%= challenge.category %></span>
+          <% else %>
+            <span class="label"><%= challenge.category %></span>
+          <% end %>
+
+
+          <!-- Section to display challenge properties -->
+          <table>
+            <thead>
+              <tr>
+                <th width="220">
+                  <h6 class="ccinfo"><strong><%= challenge.name %></strong></h6>
+                  <small>by <%= challenge.user.username %></small>
+                    <%= link_to "", challenge_path(challenge), class: "label success right fi-play" %>
+                </th>
+              </tr>
+            </thead>
+            <tr>
+            <td><textarea class="limited"><%= challenge.instructions %></textarea></td>
+            </tr>
+          </table>
+        
         </div>
+
+      <% end %>           
+
+    </div>
+
+  </div>
+</div>
 
     
