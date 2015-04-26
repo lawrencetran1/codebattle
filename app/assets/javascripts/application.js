@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require foundation/rails/confirm
 //= require angular
 //= require angular-rails-templates
 
