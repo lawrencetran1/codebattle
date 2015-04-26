@@ -1,76 +1,59 @@
-<style type="text/css">
-  
-  html, body, #map-canvas{
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
+<div class="row">
+     
+         
+        <div class="large-9 columns">
+     
+          <h3>Get in Touch!</h3>
+          <p>Code Battlers unite! Email us about anything especially on things that we can improve.  We love getting email all day <em>all day</em>.</p>
+     
+          <div class="section-container tabs" data-section>
+            <section class="section">
+              <h5 class="title"><a href="#panel1">Contact us</a></h5>
+              <div class="content" data-slug="panel1">
+                <form>
+                  <div class="row collapse">
+                    <div class="large-2 columns">
+                      <label class="inline">Your Name</label>
+                    </div>
+                    <div class="large-10 columns">
+                      <input type="text" id="yourName" placeholder="Jane Smith">
+                    </div>
+                  </div>
+                  <div class="row collapse">
+                    <div class="large-2 columns">
+                      <label class="inline"> Your Email</label>
+                    </div>
+                    <div class="large-10 columns">
+                      <input type="text" id="yourEmail" placeholder="jane@smithco.com">
+                    </div>
+                  </div>
+                  <label>What's up?</label>
+                  <textarea rows="4"></textarea>
+                  <button type="submit" class="radius button">Submit</button>
+                </form>
+              </div>
+            </section>
 
-</style>
-
-<script type="text/javascript" src="<%= @endpoint %>"></script>
-
-<script type="text/javascript">
-// This is what initializes the Google maps into our app
-  function initialize(){
-
-    var sanJose = new google.maps.LatLng(37.339085, -121.8914807);
-    var beaches = [
-       ['Huntington Beach', 33.660297, -117.99922650000002],
-       ['Seal Beach', 33.7414064, -118.10478660000001],
-       ['Long Beach', 33.7700504, -118.19373949999999],
-       ['Venice Beach', 33.9850469, -118.46948320000001],
-       ['Manhattan Beach', 33.8847361, -118.41090889999998]
-     ];
-
-    // var marker = new google.maps.Marker({
-    //  position: sanJose,
-    //  title: "Hello World!",
-    //  animation: google.maps.Animation.DROP,
-    //  draggable: true
-
-    // });
-
-    function setMarkers(map, beaches) {
-      for (var i = 0; i < beaches.length; i++) {
-        var beach = beaches[i];
-        var latlng = new google.maps.LatLng(beach[1], beach[2]);
-        var marker = new google.maps.Marker({
-          position: latlng,
-          map: map,
-          title: beach[0]
-        });
-        
-      }     
-    }
-
-
-    // google.maps.event.addListener(marker, 'click', function(){
-    //  marker.setAnimation(google.maps.Animation.BOUNCE);
-    // });    
-
-    // This is going to be the styling for my map
-    var styles = [{"featureType":"all","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"saturation":"-66"},{"lightness":"1"}]},{"featureType":"all","elementType":"geometry.stroke","stylers":[{"visibility":"on"}]},{"featureType":"all","elementType":"labels","stylers":[{"visibility":"on"}]},{"featureType":"all","elementType":"labels.text.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"color":"#000000"},{"lightness":13}]},{"featureType":"administrative","elementType":"all","stylers":[{"visibility":"on"}]},{"featureType":"administrative","elementType":"geometry","stylers":[{"visibility":"on"}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#000000"}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#144b53"},{"lightness":14},{"weight":1.4}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#223c35"},{"visibility":"on"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"on"}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#172720"},{"lightness":5},{"visibility":"on"}]},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#162723"}]},{"featureType":"poi","elementType":"labels.text","stylers":[{"visibility":"on"}]},{"featureType":"poi","elementType":"labels.icon","stylers":[{"visibility":"on"}]},{"featureType":"road","elementType":"all","stylers":[{"visibility":"on"}]},{"featureType":"road","elementType":"geometry","stylers":[{"visibility":"on"}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"visibility":"on"}]},{"featureType":"road","elementType":"geometry.stroke","stylers":[{"visibility":"on"},{"saturation":"14"},{"weight":"0.43"},{"color":"#357464"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"on"}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"on"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#1f3222"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"lightness":25},{"color":"#133f19"}]},{"featureType":"road.highway","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"road.highway.controlled_access","elementType":"all","stylers":[{"visibility":"on"}]},{"featureType":"road.highway.controlled_access","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road.highway.controlled_access","elementType":"labels.text","stylers":[{"visibility":"on"}]},{"featureType":"road.arterial","elementType":"all","stylers":[{"visibility":"on"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#000000"}]},{"featureType":"road.arterial","elementType":"geometry.stroke","stylers":[{"lightness":16},{"color":"#1ad9ba"}]},{"featureType":"road.arterial","elementType":"labels.text","stylers":[{"visibility":"on"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"road.local","elementType":"all","stylers":[{"visibility":"on"}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"color":"#26625a"}]},{"featureType":"road.local","elementType":"geometry.stroke","stylers":[{"visibility":"on"},{"color":"#48b697"}]},{"featureType":"road.local","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"color":"#233833"},{"visibility":"on"}]},{"featureType":"transit","elementType":"geometry.stroke","stylers":[{"visibility":"on"}]},{"featureType":"transit.line","elementType":"geometry.stroke","stylers":[{"visibility":"on"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#131d19"},{"visibility":"on"}]}];
-
-    // This sets the styling for a map
-    var styledMap = new google.maps.StyledMapType(styles, {name: 'Styled Map'});
-
-    // Gives us predefined options in our map
-    var mapOptions = {
-      center: sanJose,
-      zoom: 8
-    };
-    // It creates the map
-    var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-    // This adds the styling into my map
-    map.mapTypes.set('map_style', styledMap);
-    map.setMapTypeId('map_style');
-    // marker.setMap(map);
-    setMarkers(map, beaches);
-  }
-
-  google.maps.event.addDomListener(window, 'load', initialize);
-
-</script>
-
-<div id="map-canvas"></div>
+          </div>
+        </div>
+     
+         
+     
+     
+         
+     
+     
+        <div class="large-3 columns">
+          <h5>Map</h5>
+           
+          <p>
+            <a href="" data-reveal-id="mapModal"><img src="http://placehold.it/400x280"></a><br/>
+            <a href="" data-reveal-id="mapModal">View Map</a>
+          </p>
+          <p>
+            123 Fake St.<br/>
+            Fake City, CA 12345
+          </p>
+        </div>
+         
+      </div>

@@ -57,6 +57,10 @@
     color: white;
 }
 
+.cool {
+  box-shadow: 2px 2px 2px #888888;
+}
+
 #typed-cursor.blinking {
   -webkit-animation: 1s blink step-end infinite;
   -moz-animation: 1s blink step-end infinite;
